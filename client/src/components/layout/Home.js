@@ -5,7 +5,7 @@ import homePage from '../../images/homePage.jpg';
 const Home = (props) => {
   return (
     <>
-      <img src={homePage} className='bg' alt='background image' />
+      <img src={homePage} className='bg' alt='bg' />
     </>
   );
 };
