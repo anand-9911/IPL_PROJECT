@@ -1,11 +1,17 @@
 import React from 'react';
 import './Home.css';
-import homePage from '../../images/homePage.jpg';
 
 const Home = (props) => {
   return (
     <>
-      <img src={homePage} className='bg' alt='bg' />
+      <h1 style={{ textAlign: 'center' }}>
+        <i class='fas fa-stroopwafel fa-spin'></i>
+        Welcome to IPL by Anand Gautam
+        <i class='fas fa-stroopwafel fa-spin'></i>
+      </h1>
+      <section className='landing'>
+        <div></div>
+      </section>
     </>
   );
 };
