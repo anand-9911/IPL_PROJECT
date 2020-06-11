@@ -12,6 +12,7 @@ const initialState = {
   loading: true,
   isAuth: false,
   user: null,
+  isAdmin: false,
 };
 
 export default function (state = { initialState }, action) {
@@ -22,6 +23,7 @@ export default function (state = { initialState }, action) {
         ...state,
         loading: false,
         isAuth: true,
+        isAdmin: payload.admin,
         user: payload,
       };
 
@@ -43,6 +45,7 @@ export default function (state = { initialState }, action) {
         isAuth: false,
         token: null,
         loading: false,
+        isAdmin: false,
       };
     default:
       return state;

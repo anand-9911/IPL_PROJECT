@@ -8,6 +8,7 @@ import {
   LOAD_USER,
   LOGIN_SUCCESS,
   LOGOUT,
+  MATCH_ERROR,
 } from './types';
 
 //Register a User
@@ -45,7 +46,6 @@ export const login = (formData) => async (dispatch) => {
       },
     };
     const res = await axios.post('api/auth/', formData, config);
-    console.log(res);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
@@ -70,6 +70,7 @@ export const loadUser = () => async (dispatch) => {
       setToken(localStorage.token);
     }
     const res = await axios.get('api/auth/');
+    console.log(res);
     dispatch({
       type: LOAD_USER,
       payload: res.data,
@@ -83,5 +84,8 @@ export const loadUser = () => async (dispatch) => {
 export const logout = () => (dispatch) => {
   dispatch({
     type: LOGOUT,
+  });
+  dispatch({
+    type: MATCH_ERROR,
   });
 };

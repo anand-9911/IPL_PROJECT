@@ -1,5 +1,6 @@
 import React from 'react';
 import './Home.css';
+import Footer from './Footer';
 
 const Home = (props) => {
   return (
@@ -12,6 +13,7 @@ const Home = (props) => {
       <section className='landing'>
         <div></div>
       </section>
+      <Footer />
     </>
   );
 };
