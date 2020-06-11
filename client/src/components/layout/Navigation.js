@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png';
 
-const Navigation = ({ logout, isAuth, auth }) => {
+const Navigation = ({ logout, auth: { isAuth, isAdmin } }) => {
   const authLinks = () => {
     return (
       <>
@@ -35,7 +35,7 @@ const Navigation = ({ logout, isAuth, auth }) => {
                   <Link to='/player1-vs-player2'>Player 1 Vs Player 2</Link>
                 </NavDropdown.Item>
               </NavDropdown>
-              {auth.user.admin && (
+              {isAdmin && (
                 <>
                   <NavDropdown title='Admin' id='basic-nav-dropdown'>
                     <NavDropdown.Item>
@@ -101,12 +101,10 @@ const Navigation = ({ logout, isAuth, auth }) => {
 
 Navigation.propTypes = {
   logout: PropTypes.func.isRequired,
-  isAuth: PropTypes.bool,
   auth: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  isAuth: state.authReducer.isAuth,
   auth: state.authReducer,
 });
 
