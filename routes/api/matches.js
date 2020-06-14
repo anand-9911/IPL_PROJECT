@@ -8,7 +8,7 @@ const auth = require('../../middleware/auth');
 //@desc   Load all the matches
 //@access Private
 
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const matches = await Matches.find();
     return res.json(matches);

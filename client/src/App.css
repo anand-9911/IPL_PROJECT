@@ -13,6 +13,44 @@
   }
 }
 
+.width-card {
+  width: 18rem;
+}
+/* Styles for teams component*/
+.cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+@media (min-width: 600px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+#h1Team {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+#searchTeam {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+#image-card {
+  width: 286px;
+  height: 250px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
