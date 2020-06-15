@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAllMatches } from '../../actions/matches';
@@ -10,6 +10,8 @@ const Teams = ({ getAllMatches, matches }) => {
   useEffect(() => {
     getAllMatches();
   }, [getAllMatches]);
+
+  const [searchField, setSearchField] = useState('');
 
   const matchesDetails = [];
 
@@ -30,6 +32,10 @@ const Teams = ({ getAllMatches, matches }) => {
     return n === removeTeams[0] || n === removeTeams[1] || n === removeTeams[2];
   });
 
+  const filteredTeams = uniqTeam.filter((team) => {
+    return team.toLowerCase().includes(searchField.toLowerCase());
+  });
+
   return (
     <>
       <h1 id='h1Team'>List of Teams Participated</h1>
@@ -40,9 +46,11 @@ const Teams = ({ getAllMatches, matches }) => {
         name='search'
         required
         placeholder='Search...'
+        value={searchField}
+        onChange={(e) => setSearchField(e.target.value)}
       />
       <div className='cards'>
-        <TeamItem teams={uniqTeam} />
+        <TeamItem teams={filteredTeams} />
       </div>
     </>
   );
