@@ -11,3 +11,6 @@ export const REMOVE_ALERT = 'REMOVE_ALERT';
 //Matches constants
 export const LOAD_MATCHES = 'LOAD_MATCHES';
 export const MATCH_ERROR = 'MATCH_ERROR';
+//Delivery Related Data
+export const PLAYERS_LOADED = 'PLAYERS_LOADED';
+export const LOADING_ERROR = 'LOADING_ERROR';
