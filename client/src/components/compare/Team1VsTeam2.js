@@ -1,21 +1,10 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { loadPlayers } from '../../actions/deliveries';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const Team1VsTeam2 = ({ loadPlayers }) => {
-  useEffect(() => {
-    loadPlayers();
-  }, [loadPlayers]);
-  return (
-    <>
-      <div>{loadPlayers && <div>{loadPlayers.batsman}</div>}</div>
-    </>
-  );
+const Team1VsTeam2 = (props) => {
+  return <div>Team1VsTeam2</div>;
 };
 
-Team1VsTeam2.propTypes = {
-  loadPlayers: PropTypes.func.isRequired,
-};
+Team1VsTeam2.propTypes = {};
 
-export default connect(null, { loadPlayers })(Team1VsTeam2);
+export default Team1VsTeam2;
