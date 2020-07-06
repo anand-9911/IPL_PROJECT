@@ -16,6 +16,7 @@ router.get('/batsman/:batsmanName', auth, async (req, res) => {
         batsman: req.params.batsmanName,
       },
       {
+        match_id: 1,
         batsman: 1,
         batting_team: 1,
         batsman_runs: 1,
@@ -39,6 +40,7 @@ router.get('/bowler/:bowlerName', auth, async (req, res) => {
         bowler: req.params.bowlerName,
       },
       {
+        match_id: 1,
         bowling_team: 1,
         bowler: 1,
         wide_runs: 1,

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PlayerItem = ({ players }) =>
+const PlayerList = ({ players }) =>
   players.map((player) => {
     return (
       <ul>
@@ -10,6 +10,6 @@ const PlayerItem = ({ players }) =>
     );
   });
 
-PlayerItem.propTypes = {};
+PlayerList.propTypes = {};
 
-export default PlayerItem;
+export default PlayerList;
