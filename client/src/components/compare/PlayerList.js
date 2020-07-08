@@ -10,6 +10,8 @@ const PlayerList = ({ players }) =>
     );
   });
 
-PlayerList.propTypes = {};
+PlayerList.propTypes = {
+  players: PropTypes.array.isRequired,
+};
 
 export default PlayerList;

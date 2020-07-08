@@ -7,6 +7,7 @@ import {
   getPlayer1BowlingData,
   getPlayer2BowlingData,
 } from '../../actions/deliveries';
+import { setAlert } from '../../actions/alert';
 import PropTypes from 'prop-types';
 import Scroll from '../layout/Scroll';
 import Spinner from '../layout/Spinner';
@@ -15,6 +16,7 @@ import _ from 'lodash';
 import PlayerList from './PlayerList';
 const Player1VsPlayer2 = ({
   loadPlayers,
+  setAlert,
   batsman,
   bowlers,
   getPlayer1BattingData,
@@ -51,7 +53,17 @@ const Player1VsPlayer2 = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createProfile(searchField1, searchField2);
+    if (searchField1 === searchField2) {
+      setAlert('Comparasion cannot be between same players', 'danger');
+    } else if (
+      !players.includes(searchField1) ||
+      !players.includes(searchField2)
+    ) {
+      setAlert(
+        'Player is not present in the list, check spelling/select correct player ',
+        'danger'
+      );
+    } else createProfile(searchField1, searchField2);
   };
 
   const createProfile = (player1, player2) => {
@@ -122,6 +134,7 @@ const Player1VsPlayer2 = ({
 Player1VsPlayer2.propTypes = {
   loadPlayers: PropTypes.func.isRequired,
   delivery: PropTypes.array.isRequired,
+  setAlert: PropTypes.func.isRequired,
   getPlayer1BattingData: PropTypes.func.isRequired,
   getPlayer2BattingData: PropTypes.func.isRequired,
   getPlayer1BowlingData: PropTypes.func.isRequired,
@@ -139,6 +152,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   loadPlayers,
+  setAlert,
   getPlayer1BattingData,
   getPlayer2BattingData,
   getPlayer1BowlingData,

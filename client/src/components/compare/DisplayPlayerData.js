@@ -22,8 +22,8 @@ const DisplayPlayerData = ({ batsman, bowler }) => {
         if (batsman.length > bowler.length) {
           return 'Batting AllRounder';
         } else return 'Bowling AllRounder';
-      } else if (batsman.length > 0 && bowler.length == 0) return 'Batsman';
-      else if (batsman.length == 0 && bowler.length > 0) return 'Bowler';
+      } else if (batsman.length > 0 && bowler.length === 0) return 'Batsman';
+      else if (batsman.length === 0 && bowler.length > 0) return 'Bowler';
       else if (batsman.length > 0 && bowler.length < 300) return 'Batsman';
       else if (batsman.length < 300 && bowler.length > 0) return 'Bowler';
     };
