@@ -66,6 +66,13 @@ const Player1VsPlayer2 = ({
     } else createProfile(searchField1, searchField2);
   };
 
+  const onPlayerClick1 = (player) => {
+    setSearchField1(player);
+  };
+  const onPlayerClick2 = (player) => {
+    setSearchField2(player);
+  };
+
   const createProfile = (player1, player2) => {
     setSubmitted(false);
     getPlayer1BattingData(player1);
@@ -95,7 +102,10 @@ const Player1VsPlayer2 = ({
               onChange={(e) => setSearchField1(e.target.value)}
             />
             <Scroll>
-              <PlayerList players={filteredPlayers1} />
+              <PlayerList
+                players={filteredPlayers1}
+                onPlayerClick={onPlayerClick1}
+              />
             </Scroll>
           </div>
           <h3>Vs</h3>
@@ -111,7 +121,10 @@ const Player1VsPlayer2 = ({
               onChange={(e) => setSearchField2(e.target.value)}
             />
             <Scroll>
-              <PlayerList players={filteredPlayers2} />
+              <PlayerList
+                players={filteredPlayers2}
+                onPlayerClick={onPlayerClick2}
+              />
             </Scroll>
           </div>
         </div>

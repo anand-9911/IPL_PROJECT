@@ -54,6 +54,13 @@ const Team1VsTeam2 = ({ matches, setAlert }) => {
     } else createProfile();
   };
 
+  const onTeamClick1 = (player) => {
+    setSearchField1(player);
+  };
+  const onTeamClick2 = (player) => {
+    setSearchField2(player);
+  };
+
   const createProfile = () => {
     setSubmitted(false);
     setTimeout(() => {
@@ -78,7 +85,7 @@ const Team1VsTeam2 = ({ matches, setAlert }) => {
               onChange={(e) => setSearchField1(e.target.value)}
             />
             <Scroll>
-              <TeamList teams={filteredTeam1} />
+              <TeamList teams={filteredTeam1} onTeamClick={onTeamClick1} />
             </Scroll>
           </div>
           <h3>Vs</h3>
@@ -94,7 +101,7 @@ const Team1VsTeam2 = ({ matches, setAlert }) => {
               onChange={(e) => setSearchField2(e.target.value)}
             />
             <Scroll>
-              <TeamList teams={filteredTeam2} />
+              <TeamList teams={filteredTeam2} onTeamClick={onTeamClick2} />
             </Scroll>
           </div>
         </div>

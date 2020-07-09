@@ -6,8 +6,14 @@ const DisplaySeasonData = ({ seasons, matches, team1, team2 }) =>
   seasons.map((season) => {
     return (
       <>
-        <div>Season:-{season}</div>
-        {fetchSeasonData(matches, season, team1, team2)}
+        <div className='card'>
+          <div className='card-body'>
+            <div style={{ textAlign: 'center', fontWeight: 'bold' }}>
+              Season:-{season}
+            </div>
+            {fetchSeasonData(matches, season, team1, team2)}
+          </div>
+        </div>
       </>
     );
   });

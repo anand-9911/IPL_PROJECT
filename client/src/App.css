@@ -62,6 +62,10 @@
   color: white;
 }
 
+.cursor {
+  cursor: pointer;
+}
+
 .App-link {
   color: #61dafb;
 }

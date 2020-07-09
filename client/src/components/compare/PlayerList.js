@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PlayerList = ({ players }) =>
+const PlayerList = ({ players, onPlayerClick }) =>
   players.map((player) => {
     return (
       <ul>
-        <li>{player}</li>
+        <li className='cursor' onClick={() => onPlayerClick(player)}>
+          {player}
+        </li>
       </ul>
     );
   });

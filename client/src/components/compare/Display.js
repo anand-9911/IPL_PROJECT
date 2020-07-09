@@ -5,20 +5,32 @@ import { matchesTied, matchesWon, tossWon } from './fetchSeasonData';
 const Display = ({ match, team1, team2 }) => {
   return (
     <div>
-      <p>Matches Played:{match.length}</p>
-      <p>
-        Matches Won by {team1}:{matchesWon(team1, match)}
-      </p>
-      <p>
-        Matches Won by {team2}:{matchesWon(team2, match)}
-      </p>
-      <p>Matches Tied:{matchesTied(match)}</p>
-      <p>
-        Tosses Won by {team1}:{tossWon(team1, match)}
-      </p>
-      <p>
-        Tosses Won by {team2}:{tossWon(team2, match)}
-      </p>
+      <table>
+        <tr>
+          <th>Matches Played:</th>
+          <td>{match.length}</td>
+        </tr>
+        <tr>
+          <th> Matches Won by {team1}:</th>
+          <td> {matchesWon(team1, match)}</td>
+        </tr>
+        <tr>
+          <th> Matches Won by {team2}:</th>
+          <td> {matchesWon(team2, match)}</td>
+        </tr>
+        <tr>
+          <th> Matches Tied:</th>
+          <td> {matchesTied(match)}</td>
+        </tr>
+        <tr>
+          <th> Tosses Won by {team1}:</th>
+          <td> {tossWon(team1, match)}</td>
+        </tr>
+        <tr>
+          <th> Tosses Won by {team2}:</th>
+          <td>{tossWon(team2, match)}</td>
+        </tr>
+      </table>
     </div>
   );
 };

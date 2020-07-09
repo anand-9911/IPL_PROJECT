@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TeamList = ({ teams }) =>
+const TeamList = ({ teams, onTeamClick }) =>
   teams.map((team) => {
     return (
       <ul>
-        <li>{team}</li>
+        <li className='cursor' onClick={() => onTeamClick(team)}>
+          {team}
+        </li>
       </ul>
     );
   });

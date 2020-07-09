@@ -17,20 +17,40 @@ const DisplayTeamData = ({ matches, team1, team2 }) => {
         Below are the match statistics between {team1} and {team2}:
       </h2>
       <div>
-        <p>Total Matches Played:{matches.length}</p>
-        <p>
-          Total Matches Won by {team1}:{matchesWon(team1, matches)}
-        </p>
-        <p>
-          Total Matches Won by {team2}:{matchesWon(team2, matches)}
-        </p>
-        <p>Total Matches Tied:{matchesTied(matches)}</p>
-        <p>
-          Total Tosses Won by {team1}:{tossWon(team1, matches)}
-        </p>
-        <p>
-          Total Tosses Won by {team2}:{tossWon(team2, matches)}
-        </p>
+        <div className='card'>
+          <div className='card-body'>
+            <div style={{ textAlign: 'center', fontWeight: 'bold' }}>
+              Overall
+            </div>
+            <table>
+              <tr>
+                <th>Total Matches Played:</th>
+                <td>{matches.length}</td>
+              </tr>
+              <tr>
+                <th> Total Matches Won by {team1}:</th>
+                <td> {matchesWon(team1, matches)}</td>
+              </tr>
+              <tr>
+                <th> Total Matches Won by {team2}:</th>
+                <td> {matchesWon(team2, matches)}</td>
+              </tr>
+              <tr>
+                <th> Total Matches Tied:</th>
+                <td> {matchesTied(matches)}</td>
+              </tr>
+              <tr>
+                <th> Total Tosses Won by {team1}:</th>
+                <td> {tossWon(team1, matches)}</td>
+              </tr>
+              <tr>
+                <th> Total Tosses Won by {team2}:</th>
+                <td>{tossWon(team2, matches)}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
         <DisplaySeasonData
           seasons={uniqSeason}
           matches={matches}
