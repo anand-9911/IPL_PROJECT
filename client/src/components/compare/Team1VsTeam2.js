@@ -29,6 +29,15 @@ const Team1VsTeam2 = ({ matches, setAlert }) => {
   const filteredTeam2 = uniqTeam.filter((team) => {
     return team.toLowerCase().includes(searchField2.toLowerCase());
   });
+  const relevantMatches = [];
+  matchesDetails.map((match) => {
+    if (
+      (match.team1 === searchField1 && match.team2 === searchField2) ||
+      (match.team1 === searchField2 && match.team2 === searchField1)
+    ) {
+      relevantMatches.push(match);
+    }
+  });
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -42,13 +51,11 @@ const Team1VsTeam2 = ({ matches, setAlert }) => {
         'Player is not present in the list, check spelling/select correct player ',
         'danger'
       );
-    } else createProfile(searchField1, searchField2);
+    } else createProfile();
   };
 
-  const createProfile = (team1, team2) => {
+  const createProfile = () => {
     setSubmitted(false);
-    console.log(team1);
-    console.log(team2);
     setTimeout(() => {
       setSubmitted(true);
     }, 2000);
@@ -95,7 +102,13 @@ const Team1VsTeam2 = ({ matches, setAlert }) => {
           Submit
         </button>
       </form>
-      {submitted && <TeamComparedData />}
+      {submitted && (
+        <TeamComparedData
+          matches={relevantMatches}
+          team1={searchField1}
+          team2={searchField2}
+        />
+      )}
     </>
   );
 };
